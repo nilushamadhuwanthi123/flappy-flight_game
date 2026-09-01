@@ -464,8 +464,8 @@
   startBtn.addEventListener("pointerdown", (e) => { e.preventDefault(); e.stopPropagation(); startGame(); });
   restartBtn.addEventListener("pointerdown", (e) => { e.preventDefault(); e.stopPropagation(); restartGame(); });
   // Click fallback for environments without full pointer event support
-  startBtn.addEventListener("click", startGame);
-  restartBtn.addEventListener("click", restartGame);
+  startBtn.addEventListener("click", () => { startBtn.blur(); startGame(); });
+  restartBtn.addEventListener("click", () => { restartBtn.blur(); restartGame(); });
 
   // ---------------------------------------------------------------------
   // Physics update (called at a fixed timestep — deterministic regardless
